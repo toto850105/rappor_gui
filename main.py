@@ -113,6 +113,10 @@ class App_gui(Frame):
         file_data = tkFileDialog.askopenfile("r", **self.open_file_opt)
         name = file_data.name.split("/")
         self.data_path["text"] = name[-1]
+        if file_data:
+            tt = open(file_data.name, "r")
+            print(tt.read())
+            tt.close()
 
     def set_parameter(self):
         file_parameter = tkFileDialog.askopenfile("r", **self.open_file_opt)
